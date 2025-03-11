@@ -6,7 +6,7 @@ set -x
 # Setup the bash script
 if [ -f /root/.bashrc ]; then
     echo "Removing existing .bashrc"
-    rm /root/.bashrc
+    mv /root/.bashrc /root/.bashrc.$(date +%Y%m%d).backup
 fi
 
 CUR_DIR=$(dirname $(realpath $0))
@@ -56,11 +56,7 @@ fi
 apt-get update 
 apt-get install -y curl wget git htop tmux sudo nvtop ccache tree less
 
-# Setup your git config
-git config --global credential.helper "cache --timeout=604800"
-# TODO: Make this configurable
-git config --global user.name "GindaChen"
-git config --global user.email "32371474+GindaChen@users.noreply.github.com"
+# bash $CUR_DIR/setup_git.sh
 
 # Install uv and setup environments
 curl -LsSf https://astral.sh/uv/install.sh | sh
