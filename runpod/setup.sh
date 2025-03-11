@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Runnig custom setup script"
+
 set -x
 # Setup the bash script
 if [ -f /root/.bashrc ]; then
@@ -7,25 +9,32 @@ if [ -f /root/.bashrc ]; then
     rm /root/.bashrc
 fi
 
-echo "Creating symlink /workspace/home/.bashrc -> ~/.bashrc"
-cd ~ && ln -s /workspace/home/.bashrc . && cd -
+CUR_DIR=$(dirname $(realpath $0))
+
+echo "Creating symlink $CUR_DIR/bashrc.sh -> ~/.bashrc"
+cd ~ && ln -s $CUR_DIR/bashrc.sh .bashrc && cd -
 
 
 mkdir -p ~/envs
 
+if [ ! -d /workspace/projects ]; then
+    mkdir -p /workspace/projects
+fi
+
 if [ ! -d ~/projects ]; then
     echo "Creating symlink /workspace/projects -> ~/projects"
     cd ~ && ln -s /workspace/projects . && cd -
+
+    # TODO: git clone more projects if needed
 fi
 
 if [ ! -d ~/workspace ]; then
     echo "Creating symlink /workspace -> ~/workspace"
-    cd ~ && ln -s /workspace . && cd -
+    cd ~ && ln -s /workspace ~/ && cd -
 fi
 
 if [ ! -d ~/.oh-my-bash ]; then
-    echo "Creating symlink /workspace/.oh-my-bash -> ~/.oh-my-bash"
-    cd ~ && ln -s /workspace/.oh-my-bash ~/ && cd -
+    git clone https://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash
 fi
 
 if [ ! -d /root/.cache/huggingface ]; then
@@ -56,7 +65,7 @@ git config --global user.email "32371474+GindaChen@users.noreply.github.com"
 # Install uv and setup environments
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source $HOME/.local/bin/env
-bash /workspace/env_prepare/setup_envs.sh
+bash $CUR_DIR/setup_envs.sh
 
 # Install necessary packages
 pip install nvitop gpustat

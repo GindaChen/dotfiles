@@ -1,5 +1,9 @@
 # Dotfiles
 
-Bootstrap files for a few different machines. 
+## Runpod
 
-Ideally, this will be synced to S3.
+```
+curl -sSL https://raw.githubusercontent.com/GindaChen/dotfiles/refs/heads/master/setup-runpod.sh | bash
+
+
+```
