@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+
 
 echo -e "\033[36m  _   _                 _    ___ _           _     \033[0m
 \033[36m | | | | __ _  ___    / \  |_ _| |     __ _| |__  \033[0m
@@ -18,6 +18,8 @@ if [ -z "$1" ]; then
     exit 1
 fi
 REPO_NAME=$1
+
+set -x
 
 apt-get update 
 apt-get install -y curl wget git tmux tree less
