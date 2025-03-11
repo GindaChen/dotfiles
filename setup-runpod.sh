@@ -16,7 +16,7 @@ apt-get install -y curl wget git tmux tree less
 
 git clone https://github.com/GindaChen/dotfiles.git ~/dotfiles || true
 
-cd ~/dotfiles/runpod && bash ./setup.sh && cd -
+bash ~/dotfiles/runpod/setup.sh || true && cd -
 
 echo "Done"
 
