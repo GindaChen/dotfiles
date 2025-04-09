@@ -20,7 +20,7 @@ apt-get install -y curl wget git tmux tree less
 apt-get install -y figlet toilet lolcat
 
 echo
-figlet -f slant "Dotfiles Setup" | lolcat
+figlet -f slant "Setup RunPod" | lolcat
 echo
 echo -e "Repository: \e[1;33m$REPO_NAME\e[0m\n" | lolcat -a
 

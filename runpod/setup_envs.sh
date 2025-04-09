@@ -26,3 +26,7 @@ fi
 # uv venv -p 3.12 $env_root/sglang
 # uv pip install $env_prefix sgl-kernel --force-reinstall --no-deps
 # uv pip install $env_prefix "sglang[all]>=0.4.3" --find-links https://flashinfer.ai/whl/cu124/torch2.5/flashinfer-python
+
+
+# Install necessary packages
+pip install nvitop gpustat
