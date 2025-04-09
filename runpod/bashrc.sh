@@ -146,43 +146,10 @@ source "$OSH"/oh-my-bash.sh
 export PATH="$PATH:/workspace/.local/bin"
 
 DOTFILE_ROOT="$HOME/dotfiles/runpod/dotfiles"
-for file in "$DOTFILE_ROOT"/*.env.sh; do
-    source "$file"
-done
+if [ -d "$DOTFILE_ROOT" ]; then
+  for file in "$DOTFILE_ROOT"/*.sh; do
+      source "$file"
+  done
+fi 
 
 . "$HOME/.local/bin/env"
-
-# Setup uv
-source $HOME/.local/bin/env
-eval "$(uv generate-shell-completion bash)"
-
-# Setup uv env activation completion
-function _uv_env_completions() {
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=($(compgen -W "$(ls ~/envs)" -- "$cur"))
-}
-
-complete -F _uv_env_completions ha
-
-function ha() {
-    if [ -z "$1" ]; then
-        echo "Environment name is required to activate."
-        return 1
-    fi
-
-    local env_name="$1"
-    local env_path="$HOME/envs/$env_name"
-
-    if [ -d "$env_path" ]; then
-        source "$env_path/bin/activate"
-    else
-        echo "Error: Environment '$env_name' does not exist in '$HOME/envs'"
-        return 1
-    fi
-}
-
-function hfmodels() {
-  for dir in $(ls ~/.cache/huggingface/hub | grep models); do 
-    echo $dir | sed 's/models--//g' | sed 's/--/\//g'
-  done
-}
