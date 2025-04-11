@@ -12,14 +12,14 @@ mkdir -p $env_root
 # uv pip install $env_prefix vllm
 
 # Install distserve
-env_prefix="--python $env_root/distserve"
-uv venv -p 3.12 $env_root/distserve 
-echo "Installing vllm"
-uv pip install $env_prefix 'vllm==0.7.3'
-if [ ! -d /root/projects/distserve ]; then
-    echo "Installing distserve"
-    cd /root/projects/distserve && uv pip install $env_prefix -e .
-fi
+# env_prefix="--python $env_root/distserve"
+# uv venv -p 3.12 $env_root/distserve 
+# echo "Installing vllm"
+# uv pip install $env_prefix 'vllm==0.7.3'
+# if [ ! -d /root/projects/distserve ]; then
+#     echo "Installing distserve"
+#     cd /root/projects/distserve && uv pip install $env_prefix -e .
+# fi
 
 # Install sglang
 # env_prefix="--python $env_root/sglang"
