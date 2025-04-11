@@ -64,4 +64,7 @@ source $HOME/.local/bin/env
 bash $CUR_DIR/setup_envs.sh
 
 
+# Setup SSH
+bash $CUR_DIR/setup_ssh.sh
+
 set +x
