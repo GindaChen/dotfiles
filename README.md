@@ -13,6 +13,7 @@ curl -sSL https://raw.githubusercontent.com/${REPO_NAME}/refs/heads/master/setup
 
 For example, if you are [@GindaChen](https://github.com/GindaChen) with dotfiles repository, you should run:
 ```bash
+apt update && apt install curl && \
 curl -sSL https://raw.githubusercontent.com/GindaChen/dotfiles/refs/heads/master/setup-runpod.sh | bash -s "GindaChen/dotfiles" 
 ```
 
