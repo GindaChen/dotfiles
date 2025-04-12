@@ -37,15 +37,15 @@ if [ ! -d ~/.oh-my-bash ]; then
     git clone https://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash
 fi
 
-if [ ! -d /root/.cache/huggingface ]; then
-    echo "Creating directory /root/.cache/huggingface"
-    mkdir -p /root/.cache/huggingface
-fi
+# if [ ! -d /root/.cache/huggingface ]; then
+#     echo "Creating directory /root/.cache/huggingface"
+#     mkdir -p /root/.cache/huggingface
+# fi
 
-if [ ! -d /root/.cache/huggingface/hub ]; then
-    echo "Creating symlink /workspace/hf_home/hub -> /root/.cache/huggingface/hub"
-    ln -s /workspace/hf_home/hub /root/.cache/huggingface/hub
-fi
+# if [ ! -d /root/.cache/huggingface/hub ]; then
+#     echo "Creating symlink /workspace/hf_home/hub -> /root/.cache/huggingface/hub"
+#     ln -s /workspace/hf_home/hub /root/.cache/huggingface/hub
+# fi
 
 
 
