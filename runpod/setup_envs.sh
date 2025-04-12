@@ -29,4 +29,9 @@ mkdir -p $env_root
 
 
 # Install necessary packages
-pip install nvitop gpustat
+if command -v nvidia-smi &> /dev/null; then
+    # NVIDIA platform detected
+    pip install nvitop gpustat
+else
+    echo "Skipping nvitop/gpustat installation: Not an NVIDIA platform"
+fi
