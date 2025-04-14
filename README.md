@@ -1,4 +1,11 @@
 # Dotfiles
+## Quick Start
+
+
+```bash
+apt update && apt install curl -y && \
+curl -sSL https://raw.githubusercontent.com/GindaChen/dotfiles/refs/heads/master/setup-runpod.sh | bash -s "GindaChen/dotfiles" 
+```
 
 ## Runpod
 
