@@ -153,3 +153,7 @@ if [ -d "$DOTFILE_ROOT" ]; then
 fi 
 
 . "$HOME/.local/bin/env"
+
+if [ -f /etc/rp_environment ]; then
+  source /etc/rp_environment
+fi
