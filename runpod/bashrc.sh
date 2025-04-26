@@ -145,9 +145,12 @@ source "$OSH"/oh-my-bash.sh
 
 export PATH="$PATH:/workspace/.local/bin"
 
-DOTFILE_ROOT="$HOME/dotfiles/runpod/dotfiles"
-if [ -d "$DOTFILE_ROOT" ]; then
-  for file in "$DOTFILE_ROOT"/*.sh; do
+# TODO: Make these "installable" when the repo gets cloned.
+export DOTFILES_REPO_ROOT="$HOME/dotfiles/runpod"
+export DOTFILE_DIR_ROOT="$DOTFILES_REPO_ROOT/dotfiles"
+
+if [ -d "$DOTFILE_DIR_ROOT" ]; then
+  for file in "$DOTFILE_DIR_ROOT"/*.sh; do
       source "$file"
   done
 fi 
